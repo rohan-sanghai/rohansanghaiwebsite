@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Mechanical Engineer Portfolio" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-notion-gray text-notion-text font-nhg">
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-50 border-b border-gray-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex space-x-8 items-center">
+            <a href="/#home" class="text-lg font-medium">Home</a>
+            <a href="/#projects" class="text-lg">Projects</a>
+            <a href="/#experience" class="text-lg">Experience</a>
+            <a href="/#art" class="text-lg">Art</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .font-nhg {
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+</style>

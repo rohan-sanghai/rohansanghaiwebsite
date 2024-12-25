@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+---
+
+<Layout title="Your Name - Mechanical Engineer">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+    <section id="home" class="min-h-[80vh] flex items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="text-5xl font-bold mb-4">Your Name</h1>
+          <p class="text-xl mb-6 font-light">Mechanical Engineer specializing in innovative design solutions and sustainable engineering practices.</p>
+          <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors" download>
+            Download Resume
+          </a>
+        </div>
+        <div class="relative">
+          <img 
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=800&auto=format&fit=crop&q=80" 
+            alt="Engineer Portrait" 
+            class="rounded-lg shadow-lg object-cover w-full aspect-[3/4] max-w-md ml-auto" 
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-16">
+      <h2 class="text-3xl font-bold mb-6">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ProjectCard
+          title="Automated Assembly Line"
+          description="Design and implementation of a fully automated assembly system"
+          image="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&auto=format&fit=crop&q=80"
+          link="/projects/automated-assembly"
+        />
+        <ProjectCard
+          title="Sustainable HVAC System"
+          description="Energy-efficient HVAC design for commercial buildings"
+          image="https://images.unsplash.com/photo-1581092162384-8987c1d64926?w=800&auto=format&fit=crop&q=80"
+          link="/projects/hvac-system"
+        />
+        <ProjectCard
+          title="Electric Vehicle Chassis"
+          description="Lightweight chassis design for electric vehicles"
+          image="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&auto=format&fit=crop&q=80"
+          link="/projects/ev-chassis"
+        />
+      </div>
+    </section>
+
+    <section id="experience" class="py-16">
+      <h2 class="text-3xl font-bold mb-6">Experience</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold">Senior Mechanical Engineer</h3>
+          <p class="text-gray-600">TechCorp Industries • 2020 - Present</p>
+          <ul class="mt-4 list-disc list-inside text-gray-700">
+            <li>Led the design of automated manufacturing systems</li>
+            <li>Reduced production costs by 30% through process optimization</li>
+            <li>Managed a team of 5 engineers for major projects</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold">Mechanical Design Engineer</h3>
+          <p class="text-gray-600">Innovation Engineering • 2017 - 2020</p>
+          <ul class="mt-4 list-disc list-inside text-gray-700">
+            <li>Developed sustainable HVAC solutions</li>
+            <li>Created 3D models and technical documentation</li>
+            <li>Collaborated with cross-functional teams</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="art" class="py-16">
+      <h2 class="text-3xl font-bold mb-6">Art Gallery</h2>
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-8">
+          <img 
+            src="https://images.unsplash.com/photo-1581092160607-ee67df11c6d0?w=800&auto=format&fit=crop&q=80" 
+            alt="Technical Drawing" 
+            class="rounded-lg shadow-sm hover:shadow-md transition-shadow w-full h-full object-cover"
+          />
+        </div>
+        <div class="col-span-4 space-y-4">
+          <img 
+            src="https://images.unsplash.com/photo-1581092162176-2ad0eb8c8c82?w=400&auto=format&fit=crop&q=80" 
+            alt="3D Model" 
+            class="rounded-lg shadow-sm hover:shadow-md transition-shadow w-full aspect-[3/4] object-cover"
+          />
+          <img 
+            src="https://images.unsplash.com/photo-1581092162384-8987c1d64926?w=400&auto=format&fit=crop&q=80" 
+            alt="Prototype Sketch" 
+            class="rounded-lg shadow-sm hover:shadow-md transition-shadow w-full aspect-[3/4] object-cover"
+          />
+        </div>
+        <div class="col-span-4">
+          <img 
+            src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&auto=format&fit=crop&q=80" 
+            alt="Design Concept" 
+            class="rounded-lg shadow-sm hover:shadow-md transition-shadow w-full h-full object-cover"
+          />
+        </div>
+        <div class="col-span-8">
+          <img 
+            src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&auto=format&fit=crop&q=80" 
+            alt="Engineering Sketch" 
+            class="rounded-lg shadow-sm hover:shadow-md transition-shadow w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
