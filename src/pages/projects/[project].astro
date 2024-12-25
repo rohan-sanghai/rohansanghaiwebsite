@@ -3,38 +3,46 @@ import Layout from '../../layouts/Layout.astro';
 
 const { project } = Astro.params;
 
+export async function getStaticPaths() {
+  return [
+    { params: { project: 'automated-assembly' } },
+    { params: { project: 'hvac-system' } },
+    { params: { project: 'ev-chassis' } }
+  ];
+}
+
 const projects = {
   'automated-assembly': {
     title: "Automated Assembly Line",
-    description: "Design and implementation of a fully automated assembly system",
-    content: "Led the development of a state-of-the-art automated assembly line that increased production efficiency by 45%. The project involved complex robotics integration, computer vision systems, and IoT sensors for real-time monitoring. Our team successfully implemented advanced algorithms for quality control and predictive maintenance, resulting in a 30% reduction in downtime.",
-    technologies: ["Robotics", "PLC Programming", "Computer Vision", "IoT"],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    content: "This is placeholder content for the Automated Assembly Line project.",
+    technologies: ["Placeholder 1", "Placeholder 2"],
     images: [
-      "https://images.unsplash.com/photo-1581092160607-ee67df11c6d0?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092162176-2ad0eb8c8c82?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&auto=format&fit=crop&q=80"
+      "https://via.placeholder.com/800x600",
+      "https://via.placeholder.com/800x600",
+      "https://via.placeholder.com/800x600"
     ]
   },
   'hvac-system': {
     title: "Sustainable HVAC System",
-    description: "Energy-efficient HVAC design for commercial buildings",
-    content: "Designed and implemented an innovative HVAC system that reduced energy consumption by 35% while maintaining optimal comfort levels. The project incorporated smart sensors and predictive maintenance capabilities. We utilized machine learning algorithms to optimize temperature control and ventilation based on occupancy patterns and weather conditions.",
-    technologies: ["Thermal Analysis", "Energy Modeling", "Smart Controls", "Sustainable Design"],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    content: "This is placeholder content for the HVAC System project.",
+    technologies: ["Placeholder 1", "Placeholder 2"],
     images: [
-      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092162384-8987c1d64926?w=800&auto=format&fit=crop&q=80"
+      "https://via.placeholder.com/800x600",
+      "https://via.placeholder.com/800x600",
+      "https://via.placeholder.com/800x600"
     ]
   },
   'ev-chassis': {
     title: "Electric Vehicle Chassis",
-    description: "Lightweight chassis design for electric vehicles",
-    content: "Developed a revolutionary lightweight chassis design that reduced vehicle weight by 25% while maintaining structural integrity. The project utilized advanced materials and topology optimization techniques. Through innovative use of composite materials and structural optimization, we achieved significant improvements in vehicle range and performance.",
-    technologies: ["CAD", "FEA", "Materials Engineering", "Topology Optimization"],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    content: "This is placeholder content for the EV Chassis project.",
+    technologies: ["Placeholder 1", "Placeholder 2"],
     images: [
-      "https://images.unsplash.com/photo-1581092162384-8987c1d64926?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&auto=format&fit=crop&q=80"
+      "https://via.placeholder.com/800x600",
+      "https://via.placeholder.com/800x600",
+      "https://via.placeholder.com/800x600"
     ]
   }
 };
