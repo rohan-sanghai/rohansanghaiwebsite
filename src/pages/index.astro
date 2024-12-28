@@ -3,13 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 ---
 
-<Layout title="Your Name - Mechanical Engineer">
+<Layout title="Rohan Sanghai - Mechanical Engineer">
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+    <!-- Home Section -->
     <section id="home" class="min-h-[80vh] flex items-center">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
-          <h1 class="text-5xl font-bold mb-4">Your Name</h1>
-          <p class="text-xl mb-6 font-light">Mechanical Engineer specializing in innovative design solutions and sustainable engineering practices.</p>
+          <h1 class="text-5xl font-bold mb-4">Rohan Sanghai</h1>
+          <div class="text-xl mb-6 font-light space-y-4">
+            <p>Hello, thank you for stopping by!</p>
+            <p>I am Rohan, a Mechanical Engineering student specializing in Advanced Manufacturing and Design Graduate Student at MIT in the Mechanical Engineering Department at Massachusetts Institute of Technology.</p>
+            <p>After receiving my undergraduate degree from Maharashtra Institute of Technology (coincidentally also abbreviated as MIT), I worked at the Inter-University Centre for Astronomy and Astrophysics on the upcoming LIGO-India Project. This is where I developed a passion for precision design and manufacturing.</p>
+            <p>Currently, I am a part of the Device Realization Lab under Dr. Brian Anthony, where I work on developing education modules to democratize engineering education at an affordable cost. Apart from my academics, I enjoy modeling accurately scaled models of cities and 3D printing them, going around Boston photographing landscapes and I also enjoy learning about astronomy and philosophy.</p>
+          </div>
           <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors" download>
             Download Resume
           </a>
@@ -17,13 +23,13 @@ import ProjectCard from '../components/ProjectCard.astro';
         <div class="relative">
           <img 
             src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=800&auto=format&fit=crop&q=80" 
-            alt="Engineer Portrait" 
-            class="rounded-lg shadow-lg object-cover w-full aspect-[3/4] max-w-md ml-auto" 
+            alt="Rohan Sanghai Portrait" 
+            class="rounded-lg shadow-lg object-cover w-full max-w-sm ml-auto aspect-[3/4]" 
           />
         </div>
       </div>
     </section>
-
+    
     <section id="projects" class="py-16">
       <h2 class="text-3xl font-bold mb-6">Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -48,29 +54,48 @@ import ProjectCard from '../components/ProjectCard.astro';
       </div>
     </section>
 
+    <!-- Education Section -->
+    <section id="education" class="py-16">
+      <h2 class="text-3xl font-bold mb-6">Education</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold">Massachusetts Institute of Technology</h3>
+          <p class="text-gray-600">Master of Engineering in Mechanical Engineering - GPA: 4.7/5.00</p>
+          <p class="mt-2 text-gray-700">Coursework: Manufacturing Systems & Process, Design of Experiments, Statistical Process Control, Medical Device Design, Systems Engineering</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold">Maharashtra Institute of Technology</h3>
+          <p class="text-gray-600">Bachelor of Technology in Mechanical Engineering - GPA: 3.88/4.00</p>
+          <p class="mt-2 text-gray-700">Coursework: Manufacturing Engineering, Thermodynamics, Theory of Machines, Strength of Materials</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
     <section id="experience" class="py-16">
       <h2 class="text-3xl font-bold mb-6">Experience</h2>
       <div class="space-y-6">
         <div class="bg-white p-6 rounded-lg shadow-sm">
-          <h3 class="text-xl font-semibold">Senior Mechanical Engineer</h3>
-          <p class="text-gray-600">TechCorp Industries • 2020 - Present</p>
+          <h3 class="text-xl font-semibold">Graduate Research Assistant</h3>
+          <p class="text-gray-600">FrED Factory, Device Realization Lab, MIT • Aug 2024 - Present</p>
+          <p class="text-gray-600 mb-2">PI: Dr. Brian Anthony; Cambridge, USA</p>
           <ul class="mt-4 list-disc list-inside text-gray-700">
-            <li>Led the design of automated manufacturing systems</li>
-            <li>Reduced production costs by 30% through process optimization</li>
-            <li>Managed a team of 5 engineers for major projects</li>
+            <li>Mentored 5 students in developing three comprehensive education modules integrating manufacturing, controls, and IoT/Computer Vision fundamentals using an affordable FrED device platform.</li>
+            <li>Designed and executed statistical experiments (DoE, ANOVA) to optimize thread diameter specifications and analyze production variance across FrED devices, ensuring manufacturing quality control.</li>
           </ul>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-sm">
-          <h3 class="text-xl font-semibold">Mechanical Design Engineer</h3>
-          <p class="text-gray-600">Innovation Engineering • 2017 - 2020</p>
+          <h3 class="text-xl font-semibold">Research Assistant</h3>
+          <p class="text-gray-600">Inter-University Centre for Astronomy and Astrophysics (IUCAA), LIGO India • May 2022 - Aug 2022</p>
+          <p class="text-gray-600 mb-2">PI: Dr. Suresh Doravari; Pune, India</p>
           <ul class="mt-4 list-disc list-inside text-gray-700">
-            <li>Developed sustainable HVAC solutions</li>
-            <li>Created 3D models and technical documentation</li>
-            <li>Collaborated with cross-functional teams</li>
+            <li>Led the design and fabrication of Roberts linkage mechanism for LIGO's optical table isolation, managing $32,000 budget and coordinating with vendors to meet precision specifications</li>
+            <li>Optimized system design using COMSOL Multiphysics to achieve 0.01 Hz resonant frequency and 40 dB isolation, delivering 10x performance improvement over commercial solutions</li>
           </ul>
         </div>
       </div>
     </section>
+
 
     <section id="art" class="py-16">
       <h2 class="text-3xl font-bold mb-6">Art Gallery</h2>
