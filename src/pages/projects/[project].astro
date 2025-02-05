@@ -5,14 +5,62 @@ const { project } = Astro.params;
 
 export async function getStaticPaths() {
   return [
+    { params: { project: 'observatory' } },
     { params: { project: 'omni-wheel-vibration' } },
     { params: { project: 'ml-sheet-metal-bending' } },
     { params: { project: 'sapphire-fiber-analysis' } },
-    { params: { project: 'high-altitude-cpap' } }
+    { params: { project: 'high-altitude-cpap' } },
+    { params: { project: 'pzt-assembly' } },
+    { params: { project: 'beaver' } },
+    { params: { project: 'roberts-linkage' } }
   ];
 }
 
 const projects = {
+  'observatory': {
+    title: "'Aryabhata' Astronomical Observatory",
+    description: "Designed and integrated a system of telescopes with computer-controlled mount and dome for astronomical research.",
+    content: "Successfully designed and integrated a complex system including two telescopes, a computer-controlled mount, and a dome to enable astronomical research for over 2000 undergraduate engineering students. The project involved designing a custom mount using a five-axis CNC lathe and analyzing natural frequencies of the telescope pier using COMSOL Multiphysics. Seismic isolation was achieved through orthogonal support structures. The complete observatory design, including the room and telescope dome, was modeled in SolidWorks with detailed 2D floor plan layouts for construction.",
+    technologies: ["COMSOL", "SolidWorks", "CNC Manufacturing", "Vibration Analysis", "CAD", "Seismic Isolation"],
+    images: [
+      "/images/observatory-1.jpg",
+      "/images/observatory-2.jpg",
+      "/images/observatory-3.jpg"
+    ]
+  },
+  'pzt-assembly': {
+    title: "Assembly Jig for PZT Mounting and Gluing",
+    description: "High-precision alignment system for piezoelectric sensors in laser applications.",
+    content: "Designed a specialized jig for aligning piezoelectric sensors to one-inch mirrors with 100-micron tolerance for laser pre-mode cleaner applications. The project involved comprehensive SolidWorks design with GD&T implementation for manufacturing precision. Natural resonant modes were calculated using eigenfrequency finite element analysis in COMSOL Multiphysics, with results validated through manual excitation testing and amplitude spectral density analysis.",
+    technologies: ["SolidWorks", "GD&T", "COMSOL", "FEA", "Spectral Analysis"],
+    images: [
+      "/images/pzt-1.jpg",
+      "/images/pzt-2.jpg",
+      "/images/pzt-3.jpg"
+    ]
+  },
+  'beaver': {
+    title: "BEAVER - Bioprospecting Experimentation Apparatus",
+    description: "Automated environmental regulation system for microbial studies.",
+    content: "Developed a patent-pending passive gas mixing system for bioprospecting experimentation. The system delivers 12 unique concentrations using an innovative fluidic chip and branching tree design. Through computational simulations and experimental validation, the system achieved optimal flow-rate ratios for gas mixing. A custom bubble humidifier maintains relative humidity above 60% for microbial growth. The system successfully automated environmental regulation, producing smooth gradients and achieving target CO₂ concentrations (0-27%), verified through real-time sensor data.",
+    technologies: ["Fluid Dynamics", "Environmental Control", "Sensor Integration", "Patent Development"],
+    images: [
+      "/images/beaver-1.jpg",
+      "/images/beaver-2.jpg",
+      "/images/beaver-3.jpg"
+    ]
+  },
+  'roberts-linkage': {
+    title: "Robert's Linkage Seismic Isolator",
+    description: "Advanced seismic isolation system for LIGO-India optical tables.",
+    content: "Led the Seismic Isolation Group in designing and fabricating a Robert's linkage mechanism for active seismic isolation of optical tables at LIGO-India. The project achieved a modal frequency of 0.01 Hz and 40 dB isolation at 1 Hz, representing a 10x improvement over commercial solutions. The team optimized geometry for FEA computation, reducing meshing time by 93% while maintaining structural integrity. Additionally, designed and prototyped an Optical Shadow Sensor and Magnetic Actuator generating 0.1 N force with 200 mA current for active magnetic actuation.",
+    technologies: ["COMSOL", "FEA", "Mechanical Design", "Sensor Development", "Magnetic Actuation"],
+    images: [
+      "/images/linkage-1.jpg",
+      "/images/linkage-2.jpg",
+      "/images/linkage-3.jpg"
+    ]
+  },
   'omni-wheel-vibration': {
     title: "Omni Wheel Vibration Analysis & Testing",
     description: "Developing a data-driven framework to optimize omni-wheel stability under varying loads.",
