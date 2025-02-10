@@ -22,7 +22,7 @@ const projects = {
     description: "Designed and integrated a system of telescopes with computer-controlled mount and dome for astronomical research.",
     content: "Successfully designed and integrated a complex system including two telescopes, a computer-controlled mount, and a dome to enable astronomical research for over 2000 undergraduate engineering students. The project involved designing a custom mount using a five-axis CNC lathe and analyzing natural frequencies of the telescope pier using COMSOL Multiphysics. Seismic isolation was achieved through orthogonal support structures. The complete observatory design, including the room and telescope dome, was modeled in SolidWorks with detailed 2D floor plan layouts for construction.",
     technologies: ["COMSOL", "SolidWorks", "CNC Manufacturing", "Vibration Analysis", "CAD", "Seismic Isolation"],
-    images: [
+    images: [ 
       "/images/observatory-1.jpg",
       "/images/observatory-2.jpg",
       "/images/observatory-3.jpg"
@@ -126,7 +126,7 @@ const projectLinks = Object.keys(projects).map(key => ({
       {projectLinks.map(link => (
         <a
           href={link.href}
-          class={`px-4 py-2 rounded-full whitespace-nowrap ${
+          class={`px-6 py-3 rounded-full whitespace-normal min-w-fit text-center ${
             link.current 
               ? 'bg-blue-600 text-white' 
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
