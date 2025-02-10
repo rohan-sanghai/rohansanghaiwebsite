@@ -30,6 +30,37 @@ const { title } = Astro.props;
       </div>
     </nav>
     <slot />
+
+    <script>
+      // Check for saved dark mode preference
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+      // Handle dark mode toggle
+      document.addEventListener('DOMContentLoaded', () => {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const moonIcon = document.getElementById('moonIcon');
+        const sunIcon = document.getElementById('sunIcon');
+
+        const updateIcons = () => {
+          const isDark = document.documentElement.classList.contains('dark');
+          moonIcon.classList.toggle('hidden', isDark);
+          sunIcon.classList.toggle('hidden', !isDark);
+        };
+
+        darkModeToggle?.addEventListener('click', () => {
+          document.documentElement.classList.toggle('dark');
+          localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+          updateIcons();
+        });
+
+        // Set initial icon state
+        updateIcons();
+      });
+    </script>
   </body>
 </html>
 

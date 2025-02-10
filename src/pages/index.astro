@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import DarkModeToggle from '../components/DarkModeToggle.astro';
 
 const projects = {
   'observatory': {
@@ -47,6 +48,16 @@ const projects = {
 ---
 
 <Layout title="Rohan Sanghai - Mechanical Engineer">
+  <nav class="fixed w-full bg-white dark:bg-gray-900 shadow-sm z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Your existing nav items -->
+        <div class="flex items-center space-x-4">
+          <DarkModeToggle />
+        </div>
+      </div>
+    </div>
+  </nav>
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <section id="home" class="min-h-[90vh] flex items-center pt-24">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
