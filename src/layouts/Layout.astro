@@ -1,0 +1,79 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-50 border-b border-gray-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex space-x-8 items-center">
+            <a href="/#home" class="text-lg font-medium">Home</a>
+            <a href="/#projects" class="text-lg">Projects</a>
+            <a href="/#experience" class="text-lg">Experience</a>
+            <a href="/#art" class="text-lg">Art</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <slot />
+
+    <script is:inline>
+      // Check initial dark mode
+      const isDarkMode = localStorage.theme === 'dark' || 
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+
+    <script>
+      function updateIcons() {
+        const moonIcon = document.getElementById('moonIcon');
+        const sunIcon = document.getElementById('sunIcon');
+        if (moonIcon && sunIcon) {
+          const isDark = document.documentElement.classList.contains('dark');
+          moonIcon.classList.toggle('hidden', isDark);
+          sunIcon.classList.toggle('hidden', !isDark);
+        }
+      }
+
+      // Handle dark mode toggle
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+          document.documentElement.classList.toggle('dark');
+          localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+          updateIcons();
+        });
+      }
+
+      // Set initial icon state
+      updateIcons();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .font-nhg {
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+</style>

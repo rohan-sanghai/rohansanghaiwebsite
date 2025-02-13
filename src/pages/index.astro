@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import DarkModeToggle from '../components/DarkModeToggle.astro';
+
+const projects = {
+  'observatory': {
+    title: "'Aryabhata' Astronomical Observatory",
+    description: "Designed and integrated a system of telescopes with computer-controlled mount and dome for astronomical research, serving 2000+ students.",
+    image: "/images/observatory-1.jpg"
+  },
+  'omni-wheel-vibration': {
+    title: "Omni Wheel Vibration Analysis & Testing",
+    description: "Developing a data-driven framework to optimize omni-wheel stability under varying loads.",
+    image: "/images/omni-wheel-1.jpg"
+  },
+  'ml-sheet-metal-bending': {
+    title: "Machine Learning for Sheet Metal Bending Process",
+    description: "Enhancing manufacturing efficiency by leveraging ML for real-time process optimization.",
+    image: "/images/sheet-metal-1.jpg"
+  },
+  'sapphire-fiber-analysis': {
+    title: "Sapphire Optical Fiber Manufacturing Process Analysis",
+    description: "Improving precision in sapphire optical fiber production through statistical process control.",
+    image: "/images/sapphire-fiber-1.jpg"
+  },
+  'high-altitude-cpap': {
+    title: "High Altitude CPAP Device Development",
+    description: "Developing a ruggedized CPAP system for medical use in high-altitude conditions.",
+    image: "/images/cpap-1.jpg"
+  },
+  'pzt-assembly': {
+    title: "Assembly Jig for PZT Mounting",
+    description: "Designed precision jig for piezoelectric sensor alignment with 100 micron tolerance for laser pre-mode cleaner.",
+    image: "/images/pzt-1.jpg"
+  },
+  'beaver': {
+    title: "BEAVER - Bioprospecting Experimentation Apparatus",
+    description: "Developed automated system for environmental regulation in microbial studies with patent-pending gas mixing system.",
+    image: "/images/beaver-1.jpg"
+  },
+  'roberts-linkage': {
+    title: "Robert's Linkage Seismic Isolator",
+    description: "Led seismic isolation project achieving 0.01 Hz modal frequency and 40 dB isolation for LIGO-India.",
+    image: "/images/linkage-1.jpg"
+  }
+};
+---
+
+<Layout title="Rohan Sanghai - Mechanical Engineer">
+  <nav class="fixed w-full backdrop-blur-md bg-white/75 dark:bg-gray-900/75 shadow-sm z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Navigation Links -->
+        <div class="flex space-x-8">
+          <a href="#home" class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-base font-medium transition-colors">Home</a>
+          <a href="#projects" class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-base font-medium transition-colors">Projects</a>
+          <a href="#education" class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-base font-medium transition-colors">Education</a>
+          <a href="#experience" class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-base font-medium transition-colors">Experience</a>
+          <a href="#art" class="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-base font-medium transition-colors">Art</a>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <div class="flex items-center">
+          <DarkModeToggle />
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <section id="home" class="min-h-[90vh] flex items-center pt-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="scroll-mt-24">
+          <h1 class="text-5xl font-bold mb-4">Rohan Sanghai</h1>
+          <div class="text-xl mb-6 font-light space-y-4">
+            <p>Hello, thank you for stopping by!</p>
+            <p>I am Rohan, a Mechanical Engineering student specializing in Advanced Manufacturing and Design Graduate Student at MIT in the Mechanical Engineering Department at Massachusetts Institute of Technology.</p>
+            <p>After receiving my undergraduate degree from Maharashtra Institute of Technology (coincidentally also abbreviated as MIT), I worked at the Inter-University Centre for Astronomy and Astrophysics on the upcoming LIGO-India Project. This is where I developed a passion for precision design and manufacturing.</p>
+            <p>Currently, I am a part of the Device Realization Lab under Dr. Brian Anthony, where I work on developing education modules to democratize engineering education at an affordable cost. Apart from my academics, I enjoy modeling accurately scaled models of cities and 3D printing them, going around Boston photographing landscapes and I also enjoy learning about astronomy and philosophy.</p>
+          </div>
+          <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors" download>
+            Download Resume
+          </a>
+        </div>
+        <div class="relative">
+          <img 
+            src="/rohanphoto.jpg" 
+            alt="Rohan Sanghai Portrait" 
+            class="rounded-lg shadow-lg object-cover w-full max-w-sm ml-auto aspect-[3/4]" 
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-24">
+      <h2 class="text-3xl font-bold mb-6">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        {Object.entries(projects).map(([key, project]) => (
+          <ProjectCard
+            title={project.title}
+            description={project.description}
+            image={project.image}
+            link={`/projects/${key}`}
+          />
+        ))}
+      </div>
+    </section>
+
+    <section id="education" class="py-24">
+      <h2 class="text-3xl font-bold mb-6">Education</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold">Massachusetts Institute of Technology</h3>
+          <p class="text-gray-600">Master of Engineering in Mechanical Engineering - GPA: 4.7/5.00</p>
+          <p class="mt-2 text-gray-700">Coursework: Manufacturing Systems & Process, Design of Experiments, Statistical Process Control, Medical Device Design, Systems Engineering</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold">Maharashtra Institute of Technology</h3>
+          <p class="text-gray-600">Bachelor of Technology in Mechanical Engineering - GPA: 3.88/4.00</p>
+          <p class="mt-2 text-gray-700">Coursework: Manufacturing Engineering, Thermodynamics, Theory of Machines, Strength of Materials</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-24">
+      <h2 class="text-3xl font-bold mb-6">Experience</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold">Graduate Research Assistant</h3>
+          <p class="text-gray-600">FrED Factory, Device Realization Lab, MIT • Aug 2024 - Present</p>
+          <p class="text-gray-600 mb-2">PI: Dr. Brian Anthony; Cambridge, USA</p>
+          <ul class="mt-4 list-disc list-inside text-gray-700">
+            <li>Mentored 5 students in developing three comprehensive education modules integrating manufacturing, controls, and IoT/Computer Vision fundamentals using an affordable FrED device platform.</li>
+            <li>Designed and executed statistical experiments (DoE, ANOVA) to optimize thread diameter specifications and analyze production variance across FrED devices, ensuring manufacturing quality control.</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold">Research Assistant</h3>
+          <p class="text-gray-600">Inter-University Centre for Astronomy and Astrophysics (IUCAA), LIGO India • May 2022 - Aug 2022</p>
+          <p class="text-gray-600 mb-2">PI: Dr. Suresh Doravari; Pune, India</p>
+          <ul class="mt-4 list-disc list-inside text-gray-700">
+            <li>Led the design and fabrication of Roberts linkage mechanism for LIGO's optical table isolation, managing $32,000 budget and coordinating with vendors to meet precision specifications</li>
+            <li>Optimized system design using COMSOL Multiphysics to achieve 0.01 Hz resonant frequency and 40 dB isolation, delivering 10x performance improvement over commercial solutions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="art" class="py-24">
+      <h2 class="text-3xl font-bold mb-6">Art Gallery</h2>
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-8">
+          <img 
+            src="/images/technical-drawing.jpg"
+            alt="Technical Drawing" 
+            class="rounded-lg shadow-sm hover:shadow-md transition-shadow w-full h-full object-cover"
+          />
+        </div>
+        <div class="col-span-4 space-y-4">
+          <img 
+            src="/images/3d-model.jpg"
+            alt="3D Model" 
+            class="rounded-lg shadow-sm hover:shadow-md transition-shadow w-full aspect-[3/4] object-cover"
+          />
+          <img 
+            src="/images/prototype.jpg"
+            alt="Prototype Sketch" 
+            class="rounded-lg shadow-sm hover:shadow-md transition-shadow w-full aspect-[3/4] object-cover"
+          />
+        </div>
+        <div class="col-span-4">
+          <img 
+            src="/images/design-concept.jpg"
+            alt="Design Concept" 
+            class="rounded-lg shadow-sm hover:shadow-md transition-shadow w-full h-full object-cover"
+          />
+        </div>
+        <div class="col-span-8">
+          <img 
+            src="/images/engineering-sketch.jpg"
+            alt="Engineering Sketch" 
+            class="rounded-lg shadow-sm hover:shadow-md transition-shadow w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

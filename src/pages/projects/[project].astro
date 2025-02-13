@@ -1,0 +1,166 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const { project } = Astro.params;
+
+export async function getStaticPaths() {
+  return [
+    { params: { project: 'observatory' } },
+    { params: { project: 'omni-wheel-vibration' } },
+    { params: { project: 'ml-sheet-metal-bending' } },
+    { params: { project: 'sapphire-fiber-analysis' } },
+    { params: { project: 'high-altitude-cpap' } },
+    { params: { project: 'pzt-assembly' } },
+    { params: { project: 'beaver' } },
+    { params: { project: 'roberts-linkage' } }
+  ];
+}
+
+const projects = {
+  'observatory': {
+    title: "'Aryabhata' Astronomical Observatory",
+    description: "Designed and integrated a system of telescopes with computer-controlled mount and dome for astronomical research.",
+    content: "Successfully designed and integrated a complex system including two telescopes, a computer-controlled mount, and a dome to enable astronomical research for over 2000 undergraduate engineering students. The project involved designing a custom mount using a five-axis CNC lathe and analyzing natural frequencies of the telescope pier using COMSOL Multiphysics. Seismic isolation was achieved through orthogonal support structures. The complete observatory design, including the room and telescope dome, was modeled in SolidWorks with detailed 2D floor plan layouts for construction.",
+    technologies: ["COMSOL", "SolidWorks", "CNC Manufacturing", "Vibration Analysis", "CAD", "Seismic Isolation"],
+    images: [ 
+      "/images/observatory-1.jpg",
+      "/images/observatory-2.jpg",
+      "/images/observatory-3.jpg"
+    ]
+  },
+  'pzt-assembly': {
+    title: "Assembly Jig for PZT Mounting and Gluing",
+    description: "High-precision alignment system for piezoelectric sensors in laser applications.",
+    content: "Designed a specialized jig for aligning piezoelectric sensors to one-inch mirrors with 100-micron tolerance for laser pre-mode cleaner applications. The project involved comprehensive SolidWorks design with GD&T implementation for manufacturing precision. Natural resonant modes were calculated using eigenfrequency finite element analysis in COMSOL Multiphysics, with results validated through manual excitation testing and amplitude spectral density analysis.",
+    technologies: ["SolidWorks", "GD&T", "COMSOL", "FEA", "Spectral Analysis"],
+    images: [
+      "/images/pzt-1.jpg",
+      "/images/pzt-2.jpg",
+      "/images/pzt-3.jpg"
+    ]
+  },
+  'beaver': {
+    title: "BEAVER - Bioprospecting Experimentation Apparatus",
+    description: "Automated environmental regulation system for microbial studies.",
+    content: "Developed a patent-pending passive gas mixing system for bioprospecting experimentation. The system delivers 12 unique concentrations using an innovative fluidic chip and branching tree design. Through computational simulations and experimental validation, the system achieved optimal flow-rate ratios for gas mixing. A custom bubble humidifier maintains relative humidity above 60% for microbial growth. The system successfully automated environmental regulation, producing smooth gradients and achieving target CO₂ concentrations (0-27%), verified through real-time sensor data.",
+    technologies: ["Fluid Dynamics", "Environmental Control", "Sensor Integration", "Patent Development"],
+    images: [
+      "/images/beaver-1.jpg",
+      "/images/beaver-2.jpg",
+      "/images/beaver-3.jpg"
+    ]
+  },
+  'roberts-linkage': {
+    title: "Robert's Linkage Seismic Isolator",
+    description: "Advanced seismic isolation system for LIGO-India optical tables.",
+    content: "Led the Seismic Isolation Group in designing and fabricating a Robert's linkage mechanism for active seismic isolation of optical tables at LIGO-India. The project achieved a modal frequency of 0.01 Hz and 40 dB isolation at 1 Hz, representing a 10x improvement over commercial solutions. The team optimized geometry for FEA computation, reducing meshing time by 93% while maintaining structural integrity. Additionally, designed and prototyped an Optical Shadow Sensor and Magnetic Actuator generating 0.1 N force with 200 mA current for active magnetic actuation.",
+    technologies: ["COMSOL", "FEA", "Mechanical Design", "Sensor Development", "Magnetic Actuation"],
+    images: [
+      "/images/linkage-1.jpg",
+      "/images/linkage-2.jpg",
+      "/images/linkage-3.jpg"
+    ]
+  },
+  'omni-wheel-vibration': {
+    title: "Omni Wheel Vibration Analysis & Testing",
+    description: "Developing a data-driven framework to optimize omni-wheel stability under varying loads.",
+    content: "To address instability issues in omni wheels used in robotic systems, a high-precision vibration test system was developed. The study involved testing six different wheel designs using an AC motor and IMUs, enabling dynamic load characterization. A 216-trial DOE study conducted with JMP software achieved a 90% model fit accuracy through ANOVA and FFT analysis, identifying key parameters affecting stability. The results informed a data-driven framework for optimal wheel selection, improving system performance in mobile robotic applications.",
+    technologies: ["DOE", "ANOVA", "FFT", "JMP", "IMUs", "Vibration Analysis"],
+    images: [
+      "/images/omni-wheel-1.jpg",
+      "/images/omni-wheel-2.jpg",
+      "/images/omni-wheel-3.jpg"
+    ]
+  },
+  'ml-sheet-metal-bending': {
+    title: "Machine Learning for Sheet Metal Bending Process",
+    description: "Enhancing manufacturing efficiency by leveraging ML for real-time process optimization.",
+    content: "Traditional sheet metal bending relies on iterative trial-and-error, increasing production time and waste. This project introduced a physics-informed LGBM model to predict bending sequences with high precision. By incorporating material properties and geometric parameters, prediction time was reduced from over an hour to under five minutes, improving accuracy from 84.7% to 93.0%. This enables manufacturers to streamline production, reducing material waste and increasing throughput.",
+    technologies: ["LightGBM", "Physics-Informed ML", "Feature Engineering", "Manufacturing Optimization"],
+    images: [
+      "/images/sheet-metal-1.jpg",
+      "/images/sheet-metal-2.jpg",
+      "/images/sheet-metal-3.jpg"
+    ]
+  },
+  'sapphire-fiber-analysis': {
+    title: "Sapphire Optical Fiber Manufacturing Process Analysis",
+    description: "Improving precision in sapphire optical fiber production through statistical process control.",
+    content: "The project aimed to enhance the quality and consistency of sapphire optical fibers used in high-precision applications. Statistical process control analysis was conducted on 19,707 fiber growth measurements using JMP software, identifying out-of-control conditions. Process capability studies revealed limitations in Cp/Cpk values and a 10% geometric measurement error. A multi-camera system was designed to enhance measurement accuracy, leading to improved control over fiber dimensions and performance.",
+    technologies: ["SPC", "JMP", "Cp/Cpk Analysis", "Multi-Camera System"],
+    images: [
+      "/images/sapphire-fiber-1.jpg",
+      "/images/sapphire-fiber-2.jpg",
+      "/images/sapphire-fiber-3.jpg"
+    ]
+  },
+  'high-altitude-cpap': {
+    title: "High Altitude CPAP Device Development",
+    description: "Developing a ruggedized CPAP system for medical use in high-altitude conditions.",
+    content: "Patients at high altitudes face severe respiratory challenges due to low atmospheric pressure. This project involved the design and prototyping of a CPAP device capable of maintaining 30cmH2O pressure output at elevations up to 6000m. A venturi-based flow meter was validated using COMSOL Multiphysics, and the device underwent thermal analysis and real-time data logging at 50Hz in simulated environments. The outcome was a field-deployable system ensuring consistent respiratory support in extreme conditions.",
+    technologies: ["COMSOL", "FEA", "Venturi Flow Meter", "Thermal Analysis", "Medical Device Design"],
+    images: [
+      "/images/cpap-1.jpg",
+      "/images/cpap-2.jpg",
+      "/images/cpap-3.jpg"
+    ]
+  }
+};
+
+const projectData = projects[project];
+
+if (!projectData) {
+  return Astro.redirect('/404');
+}
+
+const projectLinks = Object.keys(projects).map(key => ({
+  href: `/projects/${key}`,
+  title: projects[key].title,
+  current: key === project
+}));
+---
+
+<Layout title={`${projectData.title} - Rohan Sanghai`}>
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+    <div class="flex gap-4 mb-8 overflow-x-auto py-2">
+      {projectLinks.map(link => (
+        <a
+          href={link.href}
+          class={`px-6 py-3 rounded-full whitespace-normal min-w-fit text-center ${
+            link.current 
+              ? 'bg-blue-600 text-white' 
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          }`}
+        >
+          {link.title}
+        </a>
+      ))}
+    </div>
+
+    <article class="grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
+      <div>
+        <h1 class="text-4xl font-bold mb-4">{projectData.title}</h1>
+        <div class="flex flex-wrap gap-2 mb-6">
+          {projectData.technologies.map(tech => (
+            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">
+              {tech}
+            </span>
+          ))}
+        </div>
+        <div class="prose max-w-none">
+          <p class="text-lg leading-relaxed text-gray-700">{projectData.content}</p>
+        </div>
+      </div>
+      
+      <div class="space-y-4">
+        {projectData.images.map(image => (
+          <img 
+            src={image} 
+            alt="Project detail"
+            class="rounded-lg shadow-sm w-full h-64 object-cover"
+          />
+        ))}
+      </div>
+    </article>
+  </main>
+</Layout>
