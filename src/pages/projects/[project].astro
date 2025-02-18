@@ -19,14 +19,18 @@ export async function getStaticPaths() {
 const projects = {
   'observatory': {
     title: "'Aryabhata' Astronomical Observatory",
-    description: "Designed and integrated a system of telescopes with computer-controlled mount and dome for astronomical research.",
-    content: "Successfully designed and integrated a complex system including two telescopes, a computer-controlled mount, and a dome to enable astronomical research for over 2000 undergraduate engineering students. The project involved designing a custom mount using a five-axis CNC lathe and analyzing natural frequencies of the telescope pier using COMSOL Multiphysics. Seismic isolation was achieved through orthogonal support structures. The complete observatory design, including the room and telescope dome, was modeled in SolidWorks with detailed 2D floor plan layouts for construction.",
     technologies: ["COMSOL", "SolidWorks", "CNC Manufacturing", "Vibration Analysis", "CAD", "Seismic Isolation"],
-    images: [ 
-      "/images/observatory-1.jpg",
-      "/images/observatory-2.jpg",
-      "/images/observatory-3.jpg"
-    ]
+    heroImage: "/images/observatory-1.jpg",
+    overview: "Successfully designed and integrated a complex system including two telescopes, a computer-controlled mount, and a dome to enable astronomical research for over 2000 undergraduate engineering students.",
+    processImages: [
+      "/images/observatory-process-1.jpg",
+      "/images/observatory-process-2.jpg",
+      "/images/observatory-process-3.jpg",
+      "/images/observatory-process-4.jpg"
+    ],
+    finalResult: "The completed observatory features a fully automated dome control system, integrated telescope mount, and seismic isolation structures. The system achieves sub-arcsecond pointing accuracy and enables both visual and astrophotography observations.",
+    finalImage: "/images/observatory-final.jpg",
+    collaborators: "This project was completed in collaboration with the Department of Physics and Astronomy, with guidance from Dr. John Smith and technical support from the Engineering Workshop team."
   },
   'pzt-assembly': {
     title: "Assembly Jig for PZT Mounting and Gluing",
@@ -122,6 +126,7 @@ const projectLinks = Object.keys(projects).map(key => ({
 
 <Layout title={`${projectData.title} - Rohan Sanghai`}>
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+    <!-- Project Navigation -->
     <div class="flex gap-4 mb-8 overflow-x-auto py-2">
       {projectLinks.map(link => (
         <a
@@ -137,30 +142,149 @@ const projectLinks = Object.keys(projects).map(key => ({
       ))}
     </div>
 
-    <article class="grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
-      <div>
-        <h1 class="text-4xl font-bold mb-4">{projectData.title}</h1>
-        <div class="flex flex-wrap gap-2 mb-6">
-          {projectData.technologies.map(tech => (
-            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">
-              {tech}
-            </span>
-          ))}
-        </div>
-        <div class="prose max-w-none">
-          <p class="text-lg leading-relaxed text-gray-700">{projectData.content}</p>
-        </div>
-      </div>
-      
-      <div class="space-y-4">
-        {projectData.images.map(image => (
-          <img 
-            src={image} 
-            alt="Project detail"
-            class="rounded-lg shadow-sm w-full h-64 object-cover"
-          />
+    <article class="max-w-4xl mx-auto">
+      <!-- Title -->
+      <h1 class="text-4xl font-bold mb-4">{projectData.title}</h1>
+
+      <!-- Skills -->
+      <div class="flex flex-wrap gap-2 mb-8">
+        {projectData.technologies.map(tech => (
+          <span class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-sm">
+            {tech}
+          </span>
         ))}
       </div>
+
+      <!-- Hero Image -->
+      <img 
+        src={projectData.heroImage} 
+        alt={projectData.title}
+        class="w-full h-[400px] object-cover rounded-lg mb-8"
+      />
+
+      <!-- Overview Section -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Overview</h2>
+        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+          {projectData.overview}
+        </p>
+      </section>
+
+      <!-- Process/Development Images Carousel -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Development Process</h2>
+        <div class="relative">
+          <div class="overflow-hidden rounded-lg">
+            <div id="carousel" class="flex transition-transform duration-300">
+              {projectData.processImages.map((image, index) => (
+                <img 
+                  src={image} 
+                  alt={`Development process ${index + 1}`}
+                  class="w-full h-[400px] object-cover flex-shrink-0"
+                />
+              ))}
+            </div>
+          </div>
+          
+          <!-- Carousel Navigation Buttons -->
+          <button 
+            id="prevBtn"
+            class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75"
+            aria-label="Previous image"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          
+          <button 
+            id="nextBtn"
+            class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75"
+            aria-label="Next image"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+
+          <!-- Dots Indicator -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+            {projectData.processImages.map((_, index) => (
+              <button 
+                class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/75"
+                data-index={index}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Final Result -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Final Result</h2>
+        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+          {projectData.finalResult}
+        </p>
+        <img 
+          src={projectData.finalImage} 
+          alt="Final result"
+          class="w-full h-[400px] object-cover rounded-lg"
+        />
+      </section>
+
+      <!-- Collaborators -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Collaborators</h2>
+        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+          {projectData.collaborators}
+        </p>
+      </section>
     </article>
   </main>
 </Layout>
+
+<script>
+  let currentSlide = 0;
+  const carousel = document.getElementById('carousel');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const slideCount = dots.length;
+
+  function updateCarousel() {
+    if (carousel) {
+      carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('bg-white', index === currentSlide);
+        dot.classList.toggle('bg-white/50', index !== currentSlide);
+      });
+    }
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+    updateCarousel();
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slideCount;
+    updateCarousel();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentSlide = index;
+      updateCarousel();
+    });
+  });
+
+  // Initialize carousel
+  updateCarousel();
+
+  // Optional: Auto-advance slides
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slideCount;
+    updateCarousel();
+  }, 5000);
+</script>
