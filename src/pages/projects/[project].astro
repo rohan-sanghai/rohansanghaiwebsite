@@ -194,7 +194,7 @@ const projectLinks = Object.keys(projects).map(key => ({
         <div class="relative">
           <div class="overflow-hidden rounded-lg">
             <div id="carousel" class="flex transition-transform duration-300">
-              {projectData.processImages.map((image, index) => (
+              {projectData.processImages?.map((image, index) => (
                 <img 
                   src={image} 
                   alt={`Development process ${index + 1}`}
@@ -227,7 +227,7 @@ const projectLinks = Object.keys(projects).map(key => ({
 
           <!-- Dots Indicator -->
           <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-            {projectData.processImages.map((_, index) => (
+            {projectData.processImages?.map((_, index) => (
               <button 
                 class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/75"
                 data-index={index}
