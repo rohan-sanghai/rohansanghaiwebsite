@@ -73,47 +73,59 @@ const projects = {
   },
   'omni-wheel-vibration': {
     title: "Omni Wheel Vibration Analysis & Testing",
-    description: "Developing a data-driven framework to optimize omni-wheel stability under varying loads.",
-    content: "To address instability issues in omni wheels used in robotic systems, a high-precision vibration test system was developed. The study involved testing six different wheel designs using an AC motor and IMUs, enabling dynamic load characterization. A 216-trial DOE study conducted with JMP software achieved a 90% model fit accuracy through ANOVA and FFT analysis, identifying key parameters affecting stability. The results informed a data-driven framework for optimal wheel selection, improving system performance in mobile robotic applications.",
     technologies: ["DOE", "ANOVA", "FFT", "JMP", "IMUs", "Vibration Analysis"],
-    images: [
+    heroImage: "/images/omni-wheel-1.jpg",
+    overview: "To address instability issues in omni wheels used in robotic systems, a high-precision vibration test system was developed. The study involved testing six different wheel designs using an AC motor and IMUs, enabling dynamic load characterization.",
+    processImages: [
       "/images/omni-wheel-1.jpg",
       "/images/omni-wheel-2.jpg",
       "/images/omni-wheel-3.jpg"
-    ]
+    ],
+    finalResult: "A 216-trial DOE study conducted with JMP software achieved a 90% model fit accuracy through ANOVA and FFT analysis, identifying key parameters affecting stability.",
+    finalImage: "/images/omni-wheel-3.jpg",
+    collaborators: "This project was completed in collaboration with the robotics research team."
   },
   'ml-sheet-metal-bending': {
     title: "Machine Learning for Sheet Metal Bending Process",
-    description: "Enhancing manufacturing efficiency by leveraging ML for real-time process optimization.",
-    content: "Traditional sheet metal bending relies on iterative trial-and-error, increasing production time and waste. This project introduced a physics-informed LGBM model to predict bending sequences with high precision. By incorporating material properties and geometric parameters, prediction time was reduced from over an hour to under five minutes, improving accuracy from 84.7% to 93.0%. This enables manufacturers to streamline production, reducing material waste and increasing throughput.",
     technologies: ["LightGBM", "Physics-Informed ML", "Feature Engineering", "Manufacturing Optimization"],
-    images: [
+    heroImage: "/images/sheet-metal-1.jpg",
+    overview: "Traditional sheet metal bending relies on iterative trial-and-error, increasing production time and waste. This project introduced a physics-informed LGBM model to predict bending sequences with high precision.",
+    processImages: [
       "/images/sheet-metal-1.jpg",
       "/images/sheet-metal-2.jpg",
       "/images/sheet-metal-3.jpg"
-    ]
+    ],
+    finalResult: "By incorporating material properties and geometric parameters, prediction time was reduced from over an hour to under five minutes, improving accuracy from 84.7% to 93.0%.",
+    finalImage: "/images/sheet-metal-3.jpg",
+    collaborators: "This project was developed in collaboration with the manufacturing optimization team."
   },
   'sapphire-fiber-analysis': {
     title: "Sapphire Optical Fiber Manufacturing Process Analysis",
-    description: "Improving precision in sapphire optical fiber production through statistical process control.",
-    content: "The project aimed to enhance the quality and consistency of sapphire optical fibers used in high-precision applications. Statistical process control analysis was conducted on 19,707 fiber growth measurements using JMP software, identifying out-of-control conditions. Process capability studies revealed limitations in Cp/Cpk values and a 10% geometric measurement error. A multi-camera system was designed to enhance measurement accuracy, leading to improved control over fiber dimensions and performance.",
     technologies: ["SPC", "JMP", "Cp/Cpk Analysis", "Multi-Camera System"],
-    images: [
+    heroImage: "/images/sapphire-fiber-1.jpg",
+    overview: "The project aimed to enhance the quality and consistency of sapphire optical fibers used in high-precision applications through statistical process control analysis of 19,707 fiber growth measurements.",
+    processImages: [
       "/images/sapphire-fiber-1.jpg",
       "/images/sapphire-fiber-2.jpg",
       "/images/sapphire-fiber-3.jpg"
-    ]
+    ],
+    finalResult: "A multi-camera system was designed to enhance measurement accuracy, leading to improved control over fiber dimensions and performance.",
+    finalImage: "/images/sapphire-fiber-3.jpg",
+    collaborators: "This project was completed in collaboration with the optical manufacturing team."
   },
   'high-altitude-cpap': {
     title: "High Altitude CPAP Device Development",
-    description: "Developing a ruggedized CPAP system for medical use in high-altitude conditions.",
-    content: "Patients at high altitudes face severe respiratory challenges due to low atmospheric pressure. This project involved the design and prototyping of a CPAP device capable of maintaining 30cmH2O pressure output at elevations up to 6000m. A venturi-based flow meter was validated using COMSOL Multiphysics, and the device underwent thermal analysis and real-time data logging at 50Hz in simulated environments. The outcome was a field-deployable system ensuring consistent respiratory support in extreme conditions.",
     technologies: ["COMSOL", "FEA", "Venturi Flow Meter", "Thermal Analysis", "Medical Device Design"],
-    images: [
+    heroImage: "/images/cpap-1.jpg",
+    overview: "Patients at high altitudes face severe respiratory challenges due to low atmospheric pressure. This project involved the design and prototyping of a CPAP device capable of maintaining 30cmH2O pressure output at elevations up to 6000m.",
+    processImages: [
       "/images/cpap-1.jpg",
       "/images/cpap-2.jpg",
       "/images/cpap-3.jpg"
-    ]
+    ],
+    finalResult: "The outcome was a field-deployable system ensuring consistent respiratory support in extreme conditions.",
+    finalImage: "/images/cpap-3.jpg",
+    collaborators: "This project was developed in collaboration with the medical device research team."
   }
 };
 
